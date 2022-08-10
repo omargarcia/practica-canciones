@@ -8,14 +8,17 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { CancionesComponent } from './components/canciones/canciones.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditarcancionComponent } from './components/editarcancion/editarcancion.component';
 
 @NgModule({
-  declarations: [AppComponent, CancionComponent, CancionesComponent],
+  declarations: [AppComponent, CancionComponent, CancionesComponent, EditarcancionComponent],
   imports: [
     BrowserModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

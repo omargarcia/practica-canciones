@@ -16,11 +16,16 @@
           <td class="text-center">{{ cancion.grupo }}</td>
           <td class="text-center">{{ cancion.anio }}</td>
           <td class="text-center">{{ cancion.genero }}</td>
-          <td class="text-center">
+          <td class="d-flex justify-content-around">
+            <i
+              class="bi bi-pencil-square"
+              style="color: green; font-size: 20px"
+              (click)="editarCancion(cancion)"
+            ></i>
             <i
               class="bi bi-trash"
               (click)="eliminarCancion(cancion)"
-              style="color: red"
+              style="color: red; font-size: 20px"
             ></i>
           </td>
         </tr>

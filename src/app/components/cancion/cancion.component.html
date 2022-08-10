@@ -1,7 +1,7 @@
 <form
   #cancionForm="ngForm"
   (ngSubmit)="onSubmit(cancionForm)"
-  class="row gy-2 gx-3 align-items-center"
+  class="row gy-2 gx-3 align-items-center my-3"
   autocomplete="off"
 >
   <div class="col-12">
@@ -15,6 +15,7 @@
       #txttitulo="ngModel"
       [class.is-invalid]="txttitulo.invalid"
       [ngModel]="cancion.titulo"
+      maxlength="500"
       required
     />
     <div
@@ -34,6 +35,7 @@
       name="grupo"
       [ngModel]="cancion.grupo"
       #txtgrupo="ngModel"
+      maxlength="500"
     />
   </div>
   <div class="col-12">
@@ -68,6 +70,7 @@
       name="genero"
       [ngModel]="cancion.genero"
       #txtgenero="ngModel"
+      maxlength="500"
     />
   </div>
   <div class="col-12 text-end">

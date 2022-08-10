@@ -26,13 +26,18 @@ export class CancionService {
       ICancion[]
     >;
   }
+  obtenerCancionPorID(id: string) {
+    const cancionRef = doc(this.firestore, `canciones/${id}`);
+    return docData(cancionRef, { idField: 'id' }) as Observable<ICancion>;
+  }
 
   agregarCancion(cancion: ICancion) {
     const cancionesRef = collection(this.firestore, 'canciones');
     return addDoc(cancionesRef, cancion);
   }
-  editarCancion(cancion: ICancion) {
-    const cancionDocRef = doc(this.firestore, `books/${cancion.id}`);
+  actualizarCancion(cancion: ICancion) {
+    console.log(cancion);
+    const cancionDocRef = doc(this.firestore, `canciones/${cancion.id}`);
     return setDoc(cancionDocRef, cancion);
   }
 
