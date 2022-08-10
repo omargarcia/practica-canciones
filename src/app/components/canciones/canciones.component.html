@@ -1,0 +1,30 @@
+<div class="card">
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th class="text-center" scope="col">Titulo</th>
+          <th class="text-center" scope="col">Grupo</th>
+          <th class="text-center" scope="col">Año</th>
+          <th class="text-center" scope="col">Genero</th>
+          <th class="text-center" scope="col">Accion</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="canciones">
+        <tr *ngFor="let cancion of canciones; index as i">
+          <td class="text-center" scope="row">{{ cancion.titulo }}</td>
+          <td class="text-center">{{ cancion.grupo }}</td>
+          <td class="text-center">{{ cancion.anio }}</td>
+          <td class="text-center">{{ cancion.genero }}</td>
+          <td class="text-center">
+            <i
+              class="bi bi-trash"
+              (click)="eliminarCancion(cancion)"
+              style="color: red"
+            ></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

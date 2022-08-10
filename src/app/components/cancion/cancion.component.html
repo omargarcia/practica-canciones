@@ -1,0 +1,83 @@
+<form
+  #cancionForm="ngForm"
+  (ngSubmit)="onSubmit(cancionForm)"
+  class="row gy-2 gx-3 align-items-center"
+  autocomplete="off"
+>
+  <div class="col-12">
+    <label class="visually-hidden" for="txtTitulo">Titulo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="txtTitulo"
+      placeholder="Titulo"
+      name="titulo"
+      #txttitulo="ngModel"
+      [class.is-invalid]="txttitulo.invalid"
+      [ngModel]="cancion.titulo"
+      required
+    />
+    <div
+      *ngIf="txttitulo.invalid && (txttitulo.dirty || txttitulo.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="txttitulo.errors?.['required']">Titulo es requerido.</div>
+    </div>
+  </div>
+  <div class="col-12">
+    <label class="visually-hidden" for="txtGrupo">Grupo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="txtGrupo"
+      placeholder="Grupo"
+      name="grupo"
+      [ngModel]="cancion.grupo"
+      #txtgrupo="ngModel"
+    />
+  </div>
+  <div class="col-12">
+    <label class="visually-hidden" for="txtxAnio">Año</label>
+    <input
+      type="number"
+      class="form-control"
+      id="txtxAnio"
+      placeholder="Año"
+      name="anio"
+      [ngModel]="cancion.anio"
+      #txtanio="ngModel"
+      [class.is-invalid]="txtanio.invalid"
+      min="0"
+      max="9999"
+    />
+    <div
+      *ngIf="txtanio.invalid && (txtanio.dirty || txtanio.touched)"
+      class="invalid-feedback"
+    >
+      <div *ngIf="txtanio.errors?.['min']">Ingrese un año valido.</div>
+      <div *ngIf="txtanio.errors?.['max']">Ingrese un año valido.</div>
+    </div>
+  </div>
+  <div class="col-12">
+    <label class="visually-hidden" for="txtxGenero">Genero</label>
+    <input
+      type="text"
+      class="form-control"
+      id="txtxGenero"
+      placeholder="Genero"
+      name="genero"
+      [ngModel]="cancion.genero"
+      #txtgenero="ngModel"
+    />
+  </div>
+  <div class="col-12 text-end">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="!cancionForm.valid"
+      [disabled]="cancionForm.invalid"
+    >
+      <i class="bi bi-plus"></i>Agregar
+    </button>
+  </div>
+</form>
